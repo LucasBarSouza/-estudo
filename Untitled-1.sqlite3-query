@@ -1,0 +1,64 @@
+-- database: ./banexp.db
+SELECT
+    *
+FROM
+    produtos;
+
+INSERT INTO produtos (name, categoria, preco, estoque)
+VALUES
+    ('MOUSE USB', 'Periférico', 50.00, 10),
+    ('TECLADO MECÂNICO', 'Periférico', 150.00, 5),
+    ('MONITOR LED', 'Monitor', 800.00, 3),
+    ('HEADSET GAMER', 'Periférico', 200.00, 7),
+    ('WEBCAM HD', 'Periférico', 120.00, 8);
+
+INSERT INTO  produtos (name, categoria, preco, estoque)
+VALUES
+    ('PLACA DE VÍDEO', 'Hardware', 1500.00, 2),
+    ('PROCESSADOR', 'Hardware', 900.00, 4),
+    ('MEMÓRIA RAM', 'Hardware', 300.00, 6),
+    ('SSD 1TB', 'Armazenamento', 400.00, 5),
+    ('HD EXTERNO 2TB', 'Armazenamento', 350.00, 3);
+
+SELECT
+    *
+FROM
+    produtos;
+
+SELECT
+    name,
+    preco
+FROM
+    produtos;
+
+SELECT
+    name,
+    categoria
+FROM
+    produtos
+WHERE
+    estoque <= 5;
+
+SELECT name, preco
+FROM produtos
+WHERE preco >=50 and estoque >=0;
+
+SELECT name, preco
+FROM produtos
+WHERE estoque > 0
+ORDER BY preco ASC;
+
+SELECT name, preco
+FROM produtos
+WHERE estoque > 0
+ORDER BY preco DESC, id ASC
+LIMIT 5;
+
+SELECT name, estoque
+FROM produtos
+WHERE name LIKE '%USB%';
+
+SELECT name, estoque, preco
+FROM produtos
+WHERE estoque BETWEEN 1 AND 6
+ORDER BY estoque ASC, preco DESC;
